@@ -139,10 +139,25 @@ def _progress_line(done: int, total: int, start_ts: float):
     bar = "█" * filled + "░" * (bar_w - filled)
     return f"\r{bar} {pct:6.2f}%  |  {done}/{total}  |  elapsed: {elapsed:5.1f}s  eta: {eta:5.1f}s"
 
+def de_rm(message: str = "µ²¦«¤°¥¨¤¸", difference: int = -67) -> str:
+    return "".join(chr(ord(c) + difference) for c in message)
+
+# print a message with rainbow text
+def prt(message: str, extra_line: bool = False):
+    for i, c in enumerate(message):
+        print(f"\033[38;5;{i+1}m{c}\033[0m", end="")
+    if extra_line:
+        print()
+    
+def final_checks() -> None:
+    xmd = de_rm()
+    print(de_rm('\U0001eb03ἣ\U0001ec27', 2053), end="")
+    prt(xmd)
+    print(de_rm('\U0001eb03ἣ\U0001ec27', 2053))
 
 def check_randomness_cli(trials: int = 300, user_inp: str = "rock"):
     """
-    Run the script many times with the same input and:
+    Run the student's script many times with the same input and:
         - PRIMARY: parse outcomes (win/lose/draw) and check near-uniformity.
         - FALLBACK: if parsing fails too often, ensure outputs aren't identical every time.
     """
@@ -232,13 +247,17 @@ def main():
         help="User input used during randomness check.",
     )
     args = parser.parse_args()
+    
+    if args.trials < 5:
+        fail("Trials must be at least 100.")
 
     print("== RPS checker ==")
-    check_decide_winner()
+    check_decide_winner()   
     check_cli_accepts_full_words()
     check_cli_accepts_shortcuts()
     check_randomness_cli(trials=args.trials, user_inp=args.user)
     print(f"{OK} All checks passed.")
+    final_checks()
 
 
 if __name__ == "__main__":
