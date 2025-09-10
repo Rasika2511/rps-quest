@@ -1,10 +1,11 @@
 import random
 
 possible_options=['rock','paper','scissors']
+po=['r','p','s']
 
 def user_input():
     user_choice=input('Enter rock (or r), paper (or p) or scissors (or s): ').lower()
-    if user_choice in possible_options:
+    if user_choice in possible_options or user_choice in po:
         return user_choice
     else:
         print('Please enter one of the specified values')
@@ -15,7 +16,7 @@ def cpu_choice():
     return outcome
 
 def decide_winner(user: str, cpu: str):
-    winning_pairs={('rock','scissors'),('paper','rock'),('scissors','paper'),('r','s'),('p','r'),('s','p')}
+    winning_pairs={('rock','scissors'),('paper','rock'),('scissors','paper'),('r','scissors'),('p','rock'),('s','paper')}
     return 'win' if (user,cpu) in winning_pairs else 'draw' if user==cpu else 'lose'
 
 user=user_input()
