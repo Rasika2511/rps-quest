@@ -18,12 +18,13 @@ def cpu_choice():
 
 def decide_winner(user: str, cpu: str):
     winning_pairs={('rock','scissors'),('paper','rock'),('scissors','paper'),('r','scissors'),('p','rock'),('s','paper')}
-    return 'win' if (user,cpu) in winning_pairs else 'draw' if user==cpu else 'lose'
+    draw_pairs={('r','rock'),('p','paper'),('s','scissors')}
+    return 'win' if (user,cpu) in winning_pairs else 'draw' if user==cpu or (user,cpu) in draw_pairs else 'lose'
 
-user=user_input()
-cpu=cpu_choice()
-print(decide_winner(user,'paper'))
-'''
+#user=user_input()
+#cpu=cpu_choice()
+#print(decide_winner(user,'paper'))
+
 results=[]
 
 
@@ -40,7 +41,6 @@ if ('win','win') in results:
     print('you win!')
 else:
     print('you lose')
-'''
 
 
 
