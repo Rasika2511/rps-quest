@@ -10,6 +10,7 @@ def user_input():
     else:
         print('Please enter one of the specified values')
         exit()
+
 def cpu_choice():
     outcome=random.choice(possible_options)
     print(f'Computer picked {outcome}')
