@@ -1,6 +1,6 @@
 import random
 
-possible_options=['rock','paper','scissors','r','p','s']
+possible_options=['rock','paper','scissors']
 
 def user_input():
     user_choice=input('Enter rock (or r), paper (or p) or scissors (or s): ').lower()
@@ -16,7 +16,7 @@ def cpu_choice():
 
 def decide_winner(user: str, cpu: str):
     winning_pairs={('rock','scissors'),('paper','rock'),('scissors','paper'),('r','s'),('p','r'),('s','p')}
-    return 'You win!!' if (user,cpu) in winning_pairs else 'draw' if user==cpu else 'You lose:('
+    return 'win' if (user,cpu) in winning_pairs else 'draw' if user==cpu else 'lose'
 
 user=user_input()
 cpu=cpu_choice()
