@@ -28,7 +28,7 @@ def decide_winner(user: str, cpu: str):
 results=[]
 
 
-for i in range(3):
+while len(results)<3:
     user=user_input()
     cpu=cpu_choice()
     if decide_winner(user,cpu)=='draw':
