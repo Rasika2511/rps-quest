@@ -20,6 +20,10 @@ def decide_winner(user: str, cpu: str):
     winning_pairs={('rock','scissors'),('paper','rock'),('scissors','paper'),('r','scissors'),('p','rock'),('s','paper')}
     return 'win' if (user,cpu) in winning_pairs else 'draw' if user==cpu else 'lose'
 
+user=user_input()
+cpu=cpu_choice()
+print(decide_winner(user,'paper'))
+'''
 results=[]
 
 
@@ -36,7 +40,7 @@ if ('win','win') in results:
     print('you win!')
 else:
     print('you lose')
-
+'''
 
 
 
