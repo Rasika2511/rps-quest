@@ -32,7 +32,7 @@ for i in range(3):
     else:
         pass
 
-
+print(results)
 if ('win','win') in results:
     print('you win!')
 else:
