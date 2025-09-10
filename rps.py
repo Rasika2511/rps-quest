@@ -37,7 +37,7 @@ for i in range(3):
         results.append(decide_winner(user,cpu))
 
 print(results)
-if ('win','win') in results:
+if results.count('win')==2:
     print('you win!')
 else:
     print('you lose')
