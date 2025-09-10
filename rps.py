@@ -21,13 +21,22 @@ def decide_winner(user: str, cpu: str):
     return 'win' if (user,cpu) in winning_pairs else 'draw' if user==cpu else 'lose'
 
 results=[]
-cpu_outcomes=[]
+
 
 for i in range(3):
     user=user_input()
     cpu=cpu_choice()
-    cpu_outcomes.append(cpu)
-    results.append(decide_winner(user,cpu))
+    print(cpu)
+    if decide_winner(user,cpu)=='draw':
+        results.append(decide_winner(user,cpu))
+    else:
+        pass
+
+
+if ('win','win') in results:
+    print('you win!')
+else:
+    print('you lose')
 
 
 
