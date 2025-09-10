@@ -26,11 +26,10 @@ results=[]
 for i in range(3):
     user=user_input()
     cpu=cpu_choice()
-    print(cpu)
     if decide_winner(user,cpu)=='draw':
-        results.append(decide_winner(user,cpu))
-    else:
         pass
+    else:
+        results.append(decide_winner(user,cpu))
 
 print(results)
 if ('win','win') in results:
